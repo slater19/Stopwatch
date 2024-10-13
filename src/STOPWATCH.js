@@ -8,12 +8,11 @@ const Stopwatch = () => {
   const  formatTime= (seconds) => {
     const minutes = Math.floor(seconds/ 60);
     const  remSeconds = seconds% 60;
-    return `${minutes}:${remSeconds<10?"0":""}${remSeconds}`;
+    return `${minutes}:${remSeconds<10? "0":""}${remSeconds}`;
   };
 
   const handleStart = () => {
-  
-    setIsRunning(!isRunning);
+  setIsRunning(!isRunning);
     
   }
 
@@ -26,7 +25,7 @@ const Stopwatch = () => {
     let intervalId;
     if (isRunning) {
       // setting time from 0 to 1 every 10 milisecond using javascript setInterval method
-      intervalId = setInterval(() => setTime(prev=>prev+1), 1000);
+      intervalId = setInterval(() => {setTime((prev)=>prev+1)}, 1000);
     }
     else{clearInterval(intervalId)}
     return () => clearInterval(intervalId);
